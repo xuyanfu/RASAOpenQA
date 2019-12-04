@@ -8,15 +8,17 @@ Code for the EMNLP 2019 paper "Ranking and Sampling in Open-Domain Question Answ
 #Preprocess
 
 
-# Ranker
+#Ranker
 	cd Ranker
 	mkdir tmp_data
 	mkdir data
 	mkdir models
 	python3 init_anas.py #Initialize
 	python3 run.py #Train & Evaluate
+
 	
 #Reader
+
 	cd Reader
 	mkdir probs
 	mkdir result
