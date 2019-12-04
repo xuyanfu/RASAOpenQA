@@ -1,14 +1,14 @@
-#RASAOpenQA
+# RASAOpenQA
 Code for the EMNLP 2019 paper "Ranking and Sampling in Open-Domain Question Answering"
 
 # Requirements
 - Python (>=3.5.6)
 - TensorFlow (=1.8.0)
 
-#Preprocess
+# Preprocess
 
 
-#Ranker
+# Ranker
 	cd Ranker
 	mkdir tmp_data
 	mkdir data
@@ -17,7 +17,7 @@ Code for the EMNLP 2019 paper "Ranking and Sampling in Open-Domain Question Answ
 	python3 run.py #Train & Evaluate
 
 	
-#Reader
+# Reader
 
 	cd Reader
 	mkdir probs
