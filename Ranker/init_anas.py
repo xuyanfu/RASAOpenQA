@@ -163,6 +163,11 @@ def produce_data_list(data_mode = 'test'):
     with open('tmp_data/list_'+data_mode+'_p.pkl','wb') as fout:
         pickle.dump(list_list_para,fout)
 
+    list_q_id = list(range(len(list_question)))
+    list_q_id_str = [str(x) for x in list_q_id]
+    with open('tmp_data/list_' + data_mode + '_q_id.pkl', 'wb') as fout:
+        pickle.dump(list_q_id_str, fout)
+
 def produce_ebd(word_embeddding_path = './data/embeddings/vec_eng.txt' ):
 
     list_documents = []

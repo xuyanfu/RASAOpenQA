@@ -98,7 +98,6 @@ def BM25 (query,intset,revindex,dict_doclen,k=1.5,b=0.75):
     #print(result)
     return [ x[0] for x in result]
 
-#todo rank_p 使用 q（str） 对 list_p (list_str) 进行排序
 def rank_p(q,list_p,first_n = 200):
 
     tmp_content_sentences_words = [list(x.split()) for x in list_p ]
@@ -186,58 +185,6 @@ def init():
 
     with open('list_'+data_mode+'_q.pkl','rb') as fin:
         list_q = pickle.load(fin)
-    # with open('list_'+'test'+'_p.pkl','rb') as fin:
-    #     list_test_p = pickle.load(fin)
-    #
-    # with open('list_'+'test'+'_q.pkl','rb') as fin:
-    #     list_test_q = pickle.load(fin)
-
-
-
-    # #todo 1.将长度长于50的段落切开 2.使用BM25公式进行排序
-    # list_list_p_filtered = []
-    # for list_p in tqdm(list_list_p):
-    #     num = 0
-    #     num_50 = 0
-    #     list_p_filtered = []
-    #
-    #     for para in list_p:
-    #
-    #         para = para.replace('DOCUMENT','')
-    #         para = para.replace('PARAGRAPH_GROUP', '')
-    #         para = para.replace('PARAGRAPH', '')
-    #         list_sen = para.split('%%%%')
-    #         num+=len(list_sen)
-    #
-    #         for sen in list_sen:
-    #             sen_words = sen.split()
-    #
-    #             if len(sen_words) >50:
-    #                 num_50 += 1
-    #                 list_sub_sen = sen.split('.')
-    #                 list_sub_sen = [x for x in list_sub_sen if len(x)>1]
-    #                 com_sen_words = []
-    #                 for sub_sen in list_sub_sen:
-    #                     sub_sen += ' .'
-    #                     sub_sen_words = sub_sen.split()
-    #                     if len(com_sen_words)+ len(sub_sen_words) >50 and len(com_sen_words) >= 5 :
-    #                         list_p_filtered.append(' '.join(com_sen_words))
-    #                         com_sen_words = []
-    #                     com_sen_words+=sub_sen_words
-    #                 if len(com_sen_words) >= 5 :
-    #                     list_p_filtered.append(' '.join(com_sen_words))
-    #             # print (len(sen_words))
-    #
-    #             elif len(sen_words) >= 5:
-    #                 sen =' '.join(sen_words)
-    #                 list_p_filtered.append(sen)
-    #     # print ('num_50',num_50)
-    #     # print ('num_all',num)
-    #     # list_p_filtered = list_p_filtered[:100]
-    #     list_list_p_filtered.append(list_p_filtered)
-    #     # print (len(list_p_filtered))
-    #         # print ('\n')
-    #     # print (num)
 
     list_list_p_filtered = []
     first_n = 100
@@ -529,21 +476,27 @@ def evaluate_doc_qa():
     ans_topn = args.ans_topn
     flag_mode = args.flag_mode # 0 for every sentence decode 1 for all sentence decode
 
-    with open('tmp_data/list_dev_p.pkl','rb') as fin:
+    with open('tmp_data/list_test_p.pkl','rb') as fin:
         list_dev_p = pickle.load(fin)
-    with open('tmp_data/list_dev_q.pkl','rb') as fin:
+    with open('tmp_data/list_test_q.pkl','rb') as fin:
         list_dev_q = pickle.load(fin)
-    with open('tmp_data/list_dev_q_id.pkl','rb') as fin:
+    with open('tmp_data/list_test_q_id.pkl','rb') as fin:
         list_dev_q_id = pickle.load(fin)
-    with open('tmp_data/list_dev_a.pkl','rb') as fin:
+    with open('tmp_data/list_test_a.pkl','rb') as fin:
         list_dev_a = pickle.load(fin)
-    with open('tmp_data/id2scores_dev.pkl','rb') as fin:
+    with open('tmp_data/id2scores_test.pkl','rb') as fin:
         id2scores_dev = pickle.load(fin)
 
-    with open('probs/start_probs_'+str(batch_size)+'.pkl','rb') as fin:
+    # with open('probs/start_probs_'+str(batch_size)+'.pkl','rb') as fin:
+    #     all_start_probs = pickle.load(fin)
+    #
+    # with open('probs/end_probs_'+str(batch_size)+'.pkl','rb') as fin:
+    #     all_end_probs = pickle.load(fin)
+
+    with open('probs/start_probs.pkl','rb') as fin:
         all_start_probs = pickle.load(fin)
 
-    with open('probs/end_probs_'+str(batch_size)+'.pkl','rb') as fin:
+    with open('probs/end_probs.pkl','rb') as fin:
         all_end_probs = pickle.load(fin)
 
     start_probs = []
@@ -709,7 +662,6 @@ def evaluate_doc_qa():
     # with open('dict_id2pred.pkl','wb') as fout:
     #     pickle.dump(dict_qid2pred,fout)
 
-    # todo load df and debug
     df = pd.DataFrame(results)
     # official_output= 'question-output.json'
     # if official_output is not None:
@@ -878,52 +830,6 @@ def init_train_data():
 
 
 
-
-
-
-# init()
-# analyze()
-# select_first()
-# init_doc_qa_data()
-# init_train_data()
 evaluate_doc_qa()
 
-#
-# with open('list_dev_q_id.pkl', 'rb') as fin:
-#     list_dev_q_id = pickle.load(fin)
-# with open('list_dev_a.pkl', 'rb') as fin:
-#     list_dev_a = pickle.load(fin)
-#
-# dict_id2_listans = {}
-# for q_id,list_a in zip(list_dev_q_id,list_dev_a):
-#     dict_id2_listans[q_id] = list_a
-#
-# print ('len(dict_id2_listans)',len(dict_id2_listans))
-# with open('dict_id2_listans.pkl', 'wb') as fout:
-#     pickle.dump(dict_id2_listans, fout)
 
-
-'''
-dev
-7.560227071137129
-9679.290491396132
-9589
-21.797409969842114
-9679.290491396132
-9583
-12.609011885754834
-1988.8191413872628
-9583
-
-
-train
-7.6045182206642155
-9684.173305380853
-73954
-22.054713544351653
-9684.173305380853
-73928
-12.60625952274576
-1990.1106872415255
-73928
-'''

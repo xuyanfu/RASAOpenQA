@@ -21,7 +21,7 @@ def snorm_batch_init_pre(list_para, list_question, list_list_answer,first_N = 20
     list_list_end = []
     list_y = []
 
-    #TODO 加上firstN 40 加上senetence 排序 检查解码端的效果 设置解码端解码个数
+
     num_total_true = 0
     num_100 = 0
     for para,list_answer,question in zip(list_para,list_list_answer, list_question):
@@ -234,14 +234,14 @@ def snorm_batch_init_tuple(data_mode='dev',first_S = None,batch_size = 6):
 
         if len(list_p) == 0:
             continue
-        #todo xyf
+
         list_p_pre, list_q_pre, list_p_words_pre, list_q_words_pre, list_list_start_pre, list_list_end_pre, num_total_true,list_y = \
             snorm_batch_init_pre(list_p,list_q,list_list_a,first_N=40)
 
         if data_mode == 'train' and num_total_true == 0:
             continue
 
-        '''确认 每个一len 都是100'''
+
         batch_id.append(id)
         batch_list_sen_len.append(len(list_p_pre))
         batch_list_ansewr.append(list_answer)
@@ -452,14 +452,6 @@ def snorm_salstm_rank_analysis(data_mode = 'dev',batch_size = 8,first_S = 100,th
     print('num_h5', num_h5 / num_all)
 
 
-'''
-rank_train_batch
-rank_test_batch
-select_save
-select_restore
-'''
-
-#todo test ans_rank
 '''train'''
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = '0'
@@ -467,45 +459,10 @@ os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
 
 snorm_salstm_rank_train(model_rc ='models/ranker_pp1_sa2_b8_5e-4',data_mode='train',p_pool_flag= 1,sen_sa_flag = 2,batch_size=8,learning_rate = 5e-4,pre_word_saflag=0,after_word_saflag=0,first_S = 100)
-# snorm_salstm_rank_evaluate(model_rc ='models/sprt_salstm_rank1_pp0_sa0_b8_5e-4_best',data_mode='test',p_pool_flag= 1,sen_sa_flag = 2,batch_size=8,pre_word_saflag=0,after_word_saflag=0,first_S = 100)
-# snorm_salstm_rank_analysis(threshold=2,data_mode='dev',first_S=15,topn = 2)
-
-
-# with open('tmp_data/id2scores_train.pkl','rb') as fin:
-#    dict_id2prob_train = pickle.load(fin)
-# with open('tmp_data/id2scores_dev.pkl','rb') as fin:
-#    dict_id2prob_dev = pickle.load(fin)
-# with open('tmp_data/id2scores_test.pkl','rb') as fin:
-#    dict_id2prob_test = pickle.load(fin)
-#print (len(dict_id2prob_train))
-
-# evaluate_topk(3)
-# IR_rank('test',100)
-
-#分析 threshhold 跑起来 95 9 和 200 200
-
-'''
-dev
-
-threshold: 0.98
-accuracy: 0.990354854962931
-p: 0.49702740921289024
-r: 0.9734897052039757
-f: 0.5844666143298191
-list_num_select: 35.12747426761678
-list_num_total_true: 17.2219822932412
-num_train_set: 13893
-
-
-threshold: 0.9
-accuracy: 0.9813575181746204
-p: 0.5911389380116664
-r: 0.9052782323248845
-f: 0.6435303930825764
-list_num_select: 26.763334053120275
-list_num_total_true: 17.2219822932412
-num_train_set: 13893
-'''
+snorm_salstm_rank_evaluate(model_rc ='models/ranker_pp1_sa2_b8_5e-4_best',data_mode='test',p_pool_flag= 1,sen_sa_flag = 2,batch_size=8,pre_word_saflag=0,after_word_saflag=0,first_S = 100)
+snorm_salstm_rank_evaluate(model_rc ='models/ranker_pp1_sa2_b8_5e-4_best',data_mode='train',p_pool_flag= 1,sen_sa_flag = 2,batch_size=8,pre_word_saflag=0,after_word_saflag=0,first_S = 100)
+snorm_salstm_rank_evaluate(model_rc ='models/ranker_pp1_sa2_b8_5e-4_best',data_mode='dev',p_pool_flag= 1,sen_sa_flag = 2,batch_size=8,pre_word_saflag=0,after_word_saflag=0,first_S = 100)
+snorm_salstm_rank_analysis(threshold=2,data_mode='test',first_S=100,topn = 1)
 
 
 

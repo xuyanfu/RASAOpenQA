@@ -125,101 +125,22 @@ def main():
 
     model_dir = ModelDir(args.model)
     model = model_dir.get_model()
-    batch_size = args.n_paragraphs
+    first_K = args.n_paragraphs
     flag_shuffle = args.shuffle
     flag_rank = args.rank
 
 
-    '''
-    if args.corpus.startswith('web'):
-        dataset = TriviaQaWebDataset()
-        if args.corpus == "web-dev":
-            test_questions = dataset.get_dev()
-        elif args.corpus == "web-test":
-            test_questions = dataset.get_test()
-        elif args.corpus == "web-verified-dev":
-            test_questions = dataset.get_verified()
-        elif args.corpus == "web-train":
-            test_questions = dataset.get_train()
-        else:
-            raise AssertionError()
-    elif args.corpus.startswith("wiki"):
-        dataset = TriviaQaWikiDataset()
-        if args.corpus == "wiki-dev":
-            test_questions = dataset.get_dev()
-        elif args.corpus == "wiki-test":
-            test_questions = dataset.get_test()
-        else:
-            raise AssertionError()
-    else:
-        dataset = TriviaQaOpenDataset()
-        if args.corpus == "open-dev":
-            test_questions = dataset.get_dev()
-        elif args.corpus == "open-train":
-            test_questions = dataset.get_train()
-        else:
-            raise AssertionError()
-
-    corpus = dataset.evidence
-    splitter = MergeParagraphs(args.tokens)
-
-    per_document = args.corpus.startswith("web")  # wiki and web are both multi-document
-
-    filter_name = args.filter
-    if filter_name is None:
-        # Pick default depending on the kind of data we are using
-        if per_document:
-            filter_name = "tfidf"
-        else:
-            filter_name = "linear"
-
-    print("Selecting %d paragraphs using method \"%s\" per %s" % (
-        args.n_paragraphs, filter_name, ("question-document pair" if per_document else "question")))
-
-    if filter_name == "tfidf":
-        para_filter = TopTfIdf(NltkPlusStopWords(punctuation=True), args.n_paragraphs)
-    elif filter_name == "truncate":
-        para_filter = FirstN(args.n_paragraphs)
-    elif filter_name == "linear":
-        para_filter = ShallowOpenWebRanker(args.n_paragraphs)
-    else:
-        raise ValueError()
-
-    n_questions = args.n_sample
-    if n_questions is not None:
-        test_questions.sort(key=lambda x:x.question_id)
-        np.random.RandomState(0).shuffle(test_questions)
-        test_questions = test_questions[:n_questions]
-    '''
     print("Building question/paragraph pairs...")
     # Loads the relevant questions/documents, selects the right paragraphs, and runs the model's preprocessor
-    '''
-    if per_document:
-        prep = ExtractMultiParagraphs(splitter, para_filter, model.preprocessor, require_an_answer=False)
-    else:
-        prep = ExtractMultiParagraphsPerQuestion(splitter, para_filter, model.preprocessor, require_an_answer=False)
-    prepped_data = preprocess_par(test_questions, corpus, prep, args.n_processes, 1000)
-
-    data = []
-    for q in prepped_data.data:
-        for i, p in enumerate(q.paragraphs):
-            if q.answer_text is None:
-                ans = None
-            else:
-                ans = TokenSpans(q.answer_text, p.answer_spans)
-            data.append(DocumentParagraphQuestion(q.question_id, p.doc_id,
-                                                 (p.start, p.end), q.question, p.text,
-                                                  ans, i))
-    '''
-    with open('tmp_data/list_dev_p.pkl','rb') as fin:
+    with open('tmp_data/list_test_p.pkl','rb') as fin:
         list_dev_p = pickle.load(fin)
-    with open('tmp_data/list_dev_q.pkl','rb') as fin:
+    with open('tmp_data/list_test_q.pkl','rb') as fin:
         list_dev_q = pickle.load(fin)
-    with open('tmp_data/list_dev_q_id.pkl','rb') as fin:
+    with open('tmp_data/list_test_q_id.pkl','rb') as fin:
         list_dev_q_id = pickle.load(fin)
-    with open('tmp_data/list_dev_a.pkl','rb') as fin:
+    with open('tmp_data/list_test_a.pkl','rb') as fin:
         list_dev_a = pickle.load(fin)
-    with open('tmp_data/id2scores_dev.pkl','rb') as fin:
+    with open('tmp_data/id2scores_test.pkl','rb') as fin:
         id2scores_dev = pickle.load(fin)
 
     list_list_p_words = []
@@ -233,7 +154,7 @@ def main():
             scores_pair = sorted(scores_pair,key = lambda x:x[1],reverse=True) 
         
         
-        scores_pair = scores_pair[:batch_size]
+        scores_pair = scores_pair[:first_K]
         if flag_shuffle == 1:
             random.shuffle(scores_pair)
         elif flag_shuffle == 2:
@@ -242,10 +163,10 @@ def main():
 
         sorted_index = [x[0] for x in scores_pair ]
         list_p_sorted = [list_p[x] for x in sorted_index]
-        batch_len  = (len(list_p_sorted) // batch_size ) +1
+        batch_len  = (len(list_p_sorted) // first_K ) +1
 
         for batch in range(batch_len):
-            tmp_list_p = list_p_sorted[batch*batch_size:(batch+1)*batch_size]
+            tmp_list_p = list_p_sorted[batch*first_K:(batch+1)*first_K]
             if len(tmp_list_p) ==0:
                 break
             tmp_p = tmp_list_p[0]
@@ -398,8 +319,8 @@ def submain(dir):
         id2scores_dev = pickle.load(fin)
 
     list_list_p_words = []
-    batch_size = 30
-    flag_shuffle == 0
+    first_K = 30
+    flag_shuffle = 0
 
     for index,list_p in enumerate(list_dev_p):
         list_p_words = []
@@ -408,7 +329,7 @@ def submain(dir):
         scores_pair = [(x,scores[x]) for x in range(len(scores))]
         scores_pair = sorted(scores_pair,key = lambda x:x[1],reverse=True)
 
-        scores_pair = scores_pair[:batch_size]
+        scores_pair = scores_pair[:first_K]
         if flag_shuffle == 1:
             random.shuffle(scores_pair)
         elif flag_shuffle == 2:
@@ -416,10 +337,10 @@ def submain(dir):
 
         sorted_index = [x[0] for x in scores_pair ]
         list_p_sorted = [list_p[x] for x in sorted_index]
-        batch_len  = (len(list_p_sorted) // batch_size ) +1
+        batch_len  = (len(list_p_sorted) // first_K ) +1
 
         for batch in range(batch_len):
-            tmp_list_p = list_p_sorted[batch*batch_size:(batch+1)*batch_size]
+            tmp_list_p = list_p_sorted[batch*first_K:(batch+1)*first_K]
             if len(tmp_list_p) ==0:
                 break
             tmp_p = tmp_list_p[0]
@@ -476,7 +397,7 @@ def submain(dir):
     df = pd.DataFrame(evaluation.per_sample)
 
 
-    # todo load df and debug
+
 
     #df = pd.read_csv('paragraph-output.csv')
     if args.official_output is not None:

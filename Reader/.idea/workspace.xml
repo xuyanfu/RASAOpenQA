@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77b6bbfd-79af-41c9-a229-961feb6dc326" name="Default Changelist" comment="" />
+    <list default="true" id="77b6bbfd-79af-41c9-a229-961feb6dc326" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ranker/init_anas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Ranker/init_anas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ranker/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Ranker/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docqa/eval/init_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/docqa/eval/init_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,16 +17,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="106" column="18" selection-start-line="106" selection-start-column="18" selection-end-line="106" selection-end-column="18" />
+            <state relative-caret-position="469">
+              <caret line="268" column="37" lean-forward="true" selection-start-line="268" selection-start-column="37" selection-end-line="268" selection-end-column="37" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#1281#2022#0" />
-                <element signature="e#2085#2890#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="437" column="20" lean-forward="true" selection-start-line="437" selection-start-column="20" selection-end-line="437" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#1450#3772#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docqa/eval/init_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="703" lean-forward="true" selection-start-line="703" selection-end-line="703" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#835#1605#0" />
+                <element signature="e#1641#1838#0" />
+                <element signature="e#1872#2385#0" />
+                <element signature="e#2450#3222#0" />
+                <element signature="e#3313#3793#0" />
+                <element signature="e#3874#4469#0" />
+                <element signature="e#4590#5706#0" />
+                <element signature="e#10229#14403#0" />
+                <element signature="e#14430#15821#0" />
+                <element signature="e#24540#28712#0" />
               </folding>
             </state>
           </provider>
@@ -32,28 +73,46 @@
       <find>epoch</find>
       <find>ParagraphQuestionModel</find>
       <find>save_train_start</find>
+      <find>model</find>
+      <find>rank</find>
+      <find>flag_rank</find>
+      <find>step</find>
+      <find>model_dir</find>
+      <find>first_K</find>
+      <find>batch_size</find>
+      <find>flag_shuffle</find>
+      <find>save_dir</find>
+      <find>evaluate_doc_qa</find>
+      <find>todo</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/docqa/data_processing/preprocessed_corpus.py" />
-        <option value="$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py" />
         <option value="$PROJECT_DIR$/docqa/doc_qa_models.py" />
         <option value="$PROJECT_DIR$/docqa/evaluator.py" />
         <option value="$PROJECT_DIR$/docqa/triviaqa/training_data.py" />
         <option value="$PROJECT_DIR$/docqa/eval/produce_data.py" />
         <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py" />
+        <option value="$PROJECT_DIR$/docqa/eval/init_data.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="-315" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -63,8 +122,13 @@
         <subPane>
           <expand>
             <path>
-              <item name="Reader_local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reader_local" type="462c0819:PsiDirectoryNode" />
+              <item name="Reader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reader" type="462c0819:PsiDirectoryNode" />
+              <item name="docqa" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -108,25 +172,20 @@
       <option name="presentableId" value="Default" />
       <updated>1572708237278</updated>
       <workItem from="1572708238723" duration="6189000" />
+      <workItem from="1575530987144" duration="4387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6189000" />
+    <option name="totallyTimeSpent" value="10576000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="-315" y="-1080" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18849841" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.25301206" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32970297" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -134,13 +193,43 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Remote Host" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.02970297" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18849841" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32970297" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.02970297" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -187,25 +276,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case_study.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docqa/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="437" column="35" lean-forward="true" selection-start-line="437" selection-start-column="35" selection-end-line="437" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/case_study.py" />
     <entry file="file://$PROJECT_DIR$/docqa/data_processing/preprocessed_corpus.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -244,23 +315,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="400" column="14" selection-start-line="400" selection-start-column="4" selection-end-line="400" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#1450#3772#0" />
-            <element signature="e#3792#14069#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_pr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_pr.py" />
     <entry file="file://$PROJECT_DIR$/docqa/eval/produce_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
@@ -281,10 +336,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docqa/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="588" lean-forward="true" selection-start-line="588" selection-end-line="588" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docqa/model_dir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="45" column="55" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="268" column="37" lean-forward="true" selection-start-line="268" selection-start-column="37" selection-end-line="268" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docqa/eval/triviaqa_full_document_eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="437" column="20" lean-forward="true" selection-start-line="437" selection-start-column="20" selection-end-line="437" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#1450#3772#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docqa/eval/init_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="971">
-          <caret line="726" column="16" lean-forward="true" selection-start-line="726" selection-start-column="16" selection-end-line="726" selection-end-column="16" />
+        <state relative-caret-position="579">
+          <caret line="703" lean-forward="true" selection-start-line="703" selection-end-line="703" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <element signature="e#835#1605#0" />
@@ -294,22 +387,9 @@
             <element signature="e#3313#3793#0" />
             <element signature="e#3874#4469#0" />
             <element signature="e#4590#5706#0" />
-            <element signature="e#5725#10206#0" />
             <element signature="e#10229#14403#0" />
             <element signature="e#14430#15821#0" />
             <element signature="e#24540#28712#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="106" column="18" selection-start-line="106" selection-start-column="18" selection-end-line="106" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#1281#2022#0" />
-            <element signature="e#2085#2890#0" />
           </folding>
         </state>
       </provider>

@@ -268,7 +268,8 @@ def main():
         logging.info('max_f1 {}'.format(max_f1))
         logging.info('tmp_f1 {}'.format(tmp_f1))
         logging.info('max_em {}'.format(tmp_em))
-        # todo 1
+
+
         origin_data.preprocess(epoch, 1000)
         train = origin_data.get_train()
 
