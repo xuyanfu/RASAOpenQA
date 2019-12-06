@@ -40,7 +40,7 @@ download [embeddings](https://pan.baidu.com/s/1_D1voXnCPVNgrDTvZRaohw), [dataset
 	
 # Remarks
 The above commands are used to train and test on the Quasar-T dataset. 
-You can download the preprocessed data for [SearchQA](https://github.com/xuyanfu/RASAOpenQA) and [TriviaQA](https://github.com/xuyanfu/RASAOpenQA) and save them in Ranker/tmp_data/ directory.
+You can download the preprocessed data for [SearchQA](https://pan.baidu.com/s/1BYm6hESUeiWVqfja7w7Yww) and [TriviaQA](https://pan.baidu.com/s/1JNOyL83hcYSZpLijA_Gt6g) and save them in Ranker/tmp_data/ directory.
 Some parameters of the model should be changed according to the paper. 
 After that, you can train the Ranker and the Reader for SearchQA and TriviaQA.
 
