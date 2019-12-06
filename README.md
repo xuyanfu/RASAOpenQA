@@ -38,7 +38,7 @@ download [embeddings](https://pan.baidu.com/s/1_D1voXnCPVNgrDTvZRaohw), [dataset
 	python3 docqa/eval/triviaqa_full_document_eval.py  --step 110  -c open-dev  --rank 1  --n_paragraphs 30  --shuffle 0   --max_answer_len 8 -o question-output.json -p paragraph-output.csv result/model-date-time #Test MAX Method
 	python3 docqa/eval/init_data.py #Test SUM Method
 	
-# Remarks
+# Remark
 The above commands are used to train and test on the Quasar-T dataset. 
 You can download the preprocessed data for [SearchQA](https://pan.baidu.com/s/1BYm6hESUeiWVqfja7w7Yww) and [TriviaQA](https://pan.baidu.com/s/1JNOyL83hcYSZpLijA_Gt6g) and save them in Ranker/tmp_data/ directory.
 Some parameters of the model should be changed according to the paper. 
