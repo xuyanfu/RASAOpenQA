@@ -4,5 +4,5 @@ ujson>=1.3
 beautifulsoup4>=4.0.0
 requests>=2.18.0
 lxml>=3.0.0
-aiohttp==2.2.5
+aiohttp==3.7.4
 sanic==0.6.0
